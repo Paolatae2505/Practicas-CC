@@ -1,18 +1,24 @@
 package kass.concurrente.modelo.producto;
 
 /**
- * Clase que modela un producto de un inventario
+ * Clase que modela un producto en el inventario.
+ * Extiende la clase abstracta Producto.
+ *
  * @author Kassandra Mirael
+ * @since Computación concurrente (2024-2)
+ * @see Producto
  */
 public class ProductoInventario extends Producto {
 
+    //Atributo
     private Integer cantidad;
 
     /**
-     * Constructor que recibe nombre, precio y cantidad
-     * @param nombre Nombre del producto
-     * @param precio Precio del producto
-     * @param cantidad Cantidad en inventario
+     * Constructor que recibe nombre, precio y cantidad.
+     *
+     * @param nombre   Nombre del producto.
+     * @param precio   Precio del producto.
+     * @param cantidad Cantidad en inventario.
      */
     public ProductoInventario(String nombre, Double precio, Integer cantidad) {
         super(nombre, precio);
@@ -20,9 +26,10 @@ public class ProductoInventario extends Producto {
     }
 
     /**
-     * Constructor que recibe nombre y precio, con cantidad por default (10)
-     * @param nombre Nombre del producto
-     * @param precio Precio del producto
+     * Constructor que recibe nombre y precio, con cantidad por default (10).
+     *
+     * @param nombre Nombre del producto.
+     * @param precio Precio del producto.
      */
     public ProductoInventario(String nombre, Double precio) {
         super(nombre, precio);
@@ -30,9 +37,10 @@ public class ProductoInventario extends Producto {
     }
 
     /**
-     * Método para restar una cantidad específica del inventario
-     * @param cantidadMenos Cantidad a restar
-     * @throws InterruptedException Excepción lanzada si hay problemas con la operación de restar
+     * Método para restar una cantidad específica del inventario.
+     *
+     * @param cantidadMenos Cantidad a restar.
+     * @throws InterruptedException Excepción lanzada si hay problemas con la operación de restar.
      */
     public void restarCantidad(Integer cantidadMenos) throws InterruptedException {
         Integer resta = this.cantidad - cantidadMenos;
@@ -49,11 +57,20 @@ public class ProductoInventario extends Producto {
         }
     }
 
-    // Getter y Setter para cantidad
+    /**
+     * Obtiene la cantidad en inventario del producto.
+     *
+     * @return La cantidad en inventario del producto.
+     */
     public Integer getCantidad() {
         return cantidad;
     }
 
+    /**
+     * Establece la cantidad en inventario del producto.
+     *
+     * @param cantidad La cantidad en inventario del producto.
+     */
     public void setCantidad(Integer cantidad) {
         this.cantidad = cantidad;
     }

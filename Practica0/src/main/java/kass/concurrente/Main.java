@@ -12,7 +12,7 @@ import kass.concurrente.modelo.persona.Chef;
 import kass.concurrente.modelo.persona.Persona;
 import kass.concurrente.modelo.producto.Chile;
 import kass.concurrente.modelo.producto.Comida;
-import kass.concurrente.modelo.producto.Limón;
+import kass.concurrente.modelo.producto.Limon;
 import kass.concurrente.modelo.producto.Platillo;
 import kass.concurrente.modelo.producto.Producto;
 import kass.concurrente.modelo.producto.ProductoInventario;
@@ -28,10 +28,17 @@ import kass.concurrente.modelo.producto.Tortilla;
  * @author Kassandra Mirael
  * @version 1.0
  */
-public class Main {
+/**
+ * Clase main que simula las operaciones en la cafetería
+ * @author Vargas Bravo Paola
+ * @version 1.0  (03 de Febrero del 2024)
+ * @since Computación concurrente (2024-2)
+ */
 
+ public class Main {
+    // Atributos
     public static Cuchillo cuchillo;
-
+     
     public static void setCuchillo (Cuchillo cuchilloStrategy){
         cuchillo = cuchilloStrategy;
     }
@@ -119,7 +126,7 @@ public class Main {
         System.out.println("              ☕  Añadiendo Ingredientes extras ☕        ");
         System.out.println("————————————————————————————————————————————————————————");
         platillo2 = new Sal(platillo2);
-        platillo2 = new Limón(platillo2);
+        platillo2 = new Limon(platillo2);
         platillo2 = new Chile(platillo2);
         platillo2 = new Tortilla(platillo2);
         Thread.sleep(platillo2.getTiempoCoccion()*1000);
@@ -128,6 +135,13 @@ public class Main {
         System.out.println("  Costo + Extra: "+ precio);
         System.out.println("————————————————————————————————————————————————————————");
         CF = CF + precio;
+        System.out.println("————————————————————————————————————————————————————————");
+        System.out.println("             ☕    Compra de productos   ☕        ");
+        System.out.println("————————————————————————————————————————————————————————");
+        System.out.println(personaUno.getNombre() + " compró " + p1.getNombre() + " y " + p3.getNombre());
+        p1_1.restarCantidad(1);
+        p3_3.restarCantidad(1);
+        CF = CF + p1.getPrecio() + p3.getPrecio();
         System.out.println("————————————————————————————————————————————————————————");
         System.out.println("                   ☕  Día Finalizado ☕               ");
         System.out.println("————————————————————————————————————————————————————————");
