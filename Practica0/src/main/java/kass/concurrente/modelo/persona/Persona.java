@@ -6,7 +6,7 @@ package kass.concurrente.modelo.persona;
  * @since Computación concurrente (2024-2)
  */
 public class Persona {
-
+    // Atributos
     protected String nombre;
 
     /**

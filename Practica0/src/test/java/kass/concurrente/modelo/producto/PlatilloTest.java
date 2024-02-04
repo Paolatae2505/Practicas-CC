@@ -16,11 +16,14 @@ class PlatilloTest {
     
     @BeforeEach
     void setUp(){
-        p1 = new Platillo();
-        p2 = new Platillo("Test",10);
+        p1 = new Platillo.ConstructorPlatillo ().construir();
+        p2 = new Platillo.ConstructorPlatillo ("Test", 10).construir();
         productos = new ArrayList<>();
         annadeProductos();
-        p3 = new Platillo(productos,10.,10,"Test3");
+        p3 = new Platillo.ConstructorPlatillo ("Test3", 10)
+                .conProductos(productos)
+                .conPrecio(10.0)
+                .construirDos();
     } 
 
     void annadeProductos(){

@@ -14,7 +14,7 @@ import kass.concurrente.modelo.cuchillo.Cuchillo;
 
 public class Chef extends Persona {
     
-    //Atributo
+    //Atributos
     private Cuchillo cuchillo;
     private Integer experiencia;
 
@@ -34,21 +34,24 @@ public class Chef extends Persona {
     /**
      * Prepara un platillo por el Chef
      * 
-     * @param platillo --- Platillo a preparar
+     * @param platillo  Platillo a preparar
+     * @throws InterruptedException   Si la ejecución del hilo es interrumpida mientras espera.
      */
-    public void prepararPlatillo(Comida platillo) {
-        System.out.println("————————————————————————————————————————————————————————");
+    public void prepararPlatillo(Comida platillo) throws InterruptedException {
+        String linea = "————————————————————————————————————————————————————————";
+        System.out.println(linea);
         System.out.println("            ☕ Preparando " + platillo.getNombre());
-        System.out.println("————————————————————————————————————————————————————————");  
+        System.out.println(linea);  
         System.out.println("Tiempo de cocción : " + platillo.getTiempoCoccion() + " unidades de tiempo"); 
         for (int i = 0 ; i <= platillo.getTiempoCoccion(); i = i + cuchillo.corta()){
         System.out.println("---------------------------------------------------------");
         System.out.println("            ⌚ Unidad de tiempo : " + i);
         System.out.println("---------------------------------------------------------"); 
+        Thread.sleep((long) 1000 * (i/2));
         }
-        System.out.println("————————————————————————————————————————————————————————");
+        System.out.println(linea);
         System.out.println("            🍽️ Platillo "+ platillo.getNombre() + " listo");
-        System.out.println("————————————————————————————————————————————————————————");  
+        System.out.println(linea);  
         
     }
 

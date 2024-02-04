@@ -40,7 +40,7 @@ public class ProductoInventario extends Producto {
      * Método para restar una cantidad específica del inventario.
      *
      * @param cantidadMenos Cantidad a restar.
-     * @throws InterruptedException Excepción lanzada si hay problemas con la operación de restar.
+     * @throws InterruptedException  Si la ejecución del hilo es interrumpida mientras espera.
      */
     public void restarCantidad(Integer cantidadMenos) throws InterruptedException {
         Integer resta = this.cantidad - cantidadMenos;
